@@ -1,6 +1,6 @@
-**Project 1: Where should you visit in the USA if you're on a budget - West or East?.**
+**Project 2: Classifying Messages for Disaster Response**
 
-Code allowing the analysis of the AirBnb data between Seattle and Boston to determine which destination is the best value for money.
+Pipeline for an ETL process and code for the ML-model to classify messages during a disaster. A web app is also produced to visualise the training data.
 
 **Installation**
 
@@ -8,25 +8,30 @@ This code has a number of required dependencies which have to be pre-installed t
 
 - numpy
 - pandas
-- matplotlib
+- nltlk
+- sklearn
+- sqlalchemy
+- pickle
 
-Also need to download and save the 2016 Seattle AirBnb data (https://www.kaggle.com/datasets/airbnb/seattle/data) and the 2016/2017 Boston AirBnb data (https://www.kaggle.com/datasets/airbnb/boston) from Kaggle.
+The two datasets required are attached in this repository (data/disaster_categories.csv and data/disaster_messages.csv).
 
 **Motivation** 
 
-The motivation behind this project was to analyse the trends between the two locations at similar periods to hopefully see if we get better value for our money at one location compared to the other. 
-
-**Summary**
-
-From this analysis it was concluded that better value for money can be found at Seattle compared to Boston, with it being even cheaper during the least popular times. We also found that most reviews were happy with the location of the listings in Seattle, which is a key component of AirBnbs.
+The motivation behind this project was classify messages sent during a disaster. By doing this, the response can be significantly improved and streamlined, allowing the most vulnreable to be found quicker. 
 
 **Files**
 
-Jupyter notebook including the code used to run the analysis: Nanodegree_Course_2.ipynb.
+- process_data.py - ETL pipeline to merge and clean the data used in this project.
+- train_classifier.py - The code used to build the ML-model.
+- run.py - The code to run the web app.
 
 **Usage**
 
-Download data before use as stated in installation instructions. Code is commented and split into clear sections to allow ease of use. All parts should-be self explanatory.
+To use the files, run the following commands;
+- "python data/process_data.py data/disaster_messages.csv data/disaster_categories.csv data/DisasterResponse.db"
+- "python models/train_classifier.py data/DisasterResponse.db models/classifier"
+- "cd app"
+- "python run.py"
 
 **Author**
 
@@ -34,4 +39,4 @@ All code created by Rhodri Evans.
 
 **Acknowledegments**
 
-Thanks to Kaggle for making this analysis possible by providing the AirBnb data. Thanks to UDACITY for helping me develop my data science skill set.
+Thanks to UDACITY for helping me develop my data science skill set.
